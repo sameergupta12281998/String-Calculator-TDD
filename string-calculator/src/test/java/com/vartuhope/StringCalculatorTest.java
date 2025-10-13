@@ -25,4 +25,11 @@ public class StringCalculatorTest {
         assertEquals(6, calc.add("1,5"));
         assertEquals(30, calc.add("10,20"));
     }
+
+
+    @Test
+    void multipleNumbers() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(15, calc.add("1,2,3,4,5"));
+    }
 }
