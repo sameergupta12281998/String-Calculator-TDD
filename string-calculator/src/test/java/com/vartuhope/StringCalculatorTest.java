@@ -33,3 +33,4 @@ public class StringCalculatorTest {
         assertEquals(15, calc.add("1,2,3,4,5"));
     }
 }
+

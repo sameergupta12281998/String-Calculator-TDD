@@ -1,6 +1,8 @@
 package com.vartuhope;
 
 public class StringCalculator {
+
+    // Adds numbers in a string, separated by commas or newlines, multiple Numbers allowed
     public int add(String numbers) {
         if (numbers == null || numbers.isEmpty()) return 0;
 
