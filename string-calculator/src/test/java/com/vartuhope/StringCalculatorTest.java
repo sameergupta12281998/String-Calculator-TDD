@@ -39,5 +39,13 @@ public class StringCalculatorTest {
         assertEquals(6, calc.add("1\n2,3"));
         assertEquals(15, calc.add("4\n5\n6"));
     }
+
+    @Test
+    void customSingleCharDelimiter() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(3, calc.add("//;\\n1;2"));
+        assertEquals(9, calc.add("//*\\n2*3*4"));
+    }
+
 }
 
