@@ -1,6 +1,8 @@
 package com.vartuhope;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -51,6 +53,25 @@ public class StringCalculatorTest {
     void customBracketedDelimiter() {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("//[***]\\n1***2***3"));
+    }
+
+
+    @Test 
+    void negativeNumberRaisesWithMessage() { 
+        StringCalculator calc = new StringCalculator();
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+         () -> calc.add("1,-2,3"));
+          assertTrue(ex.getMessage().contains("negative numbers not allowed"));
+           assertTrue(ex.getMessage().contains("-2"));
+    } 
+         
+         
+    @Test
+    void multipleNegativeNumbersListed() {
+         StringCalculator calc = new StringCalculator();
+          IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+           () -> calc.add("-1,-2,3,-4"));
+            assertTrue(ex.getMessage().contains("-1,-2,-4")); 
     }
 
 }
