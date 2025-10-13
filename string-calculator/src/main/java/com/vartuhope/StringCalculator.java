@@ -6,13 +6,16 @@ public class StringCalculator {
 
 
         if (!numbers.contains(",") && !numbers.contains("\n")) {
-            try {
-                return Integer.parseInt(numbers);
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Invalid number", e);
-            }
+            return Integer.parseInt(numbers);
         }
 
-        throw new UnsupportedOperationException("Not implemented yet");
+        // split on comma for now
+        String[] tokens = numbers.split(",");
+        int sum = 0;
+        for (String t : tokens) {
+            if (t.isEmpty()) continue;
+            sum += Integer.parseInt(t);
+        }
+        return sum;
     }
 }
