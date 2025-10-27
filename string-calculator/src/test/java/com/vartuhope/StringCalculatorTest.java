@@ -49,6 +49,12 @@ public class StringCalculatorTest {
         assertEquals(9, calc.add("//*\\n2*3*4"));
     }
 
+    @Test 
+    void customMultiplySingleChatWithStar(){
+        StringCalculator calc = new StringCalculator();
+        assertEquals(30, calc.add("//*\\n2*3*5"));
+    }
+
     @Test
     void customBracketedDelimiter() {
         StringCalculator calc = new StringCalculator();
